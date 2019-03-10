@@ -7,9 +7,7 @@ import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 
-public class TestStream {
-
-    private static Map<Character, BinaryOperator<Double>> operator = operations();
+public class Calculator {
 
     private static Map<Character, BinaryOperator<Double>> operations() {
         BinaryOperator<Double> sum = (x, y) -> x + y;
@@ -29,17 +27,13 @@ public class TestStream {
         operatorMap.put('^', power);
         operatorMap.put('p', power117);
 
-
         return operatorMap;
     }
 
-    public static double calculate(double x, char operator, double y) throws NullPointerException {
-        System.out.println("begin calculate");
+    public static double calculate(double x, char operator, double y) {
         BinaryOperator<Double> op = operations().get(operator);
         return op.apply(x, y);
     }
 
-    public static void main(String[] args) {
-        System.out.println(calculate(2, '+', 5));
-    }
+
 }
