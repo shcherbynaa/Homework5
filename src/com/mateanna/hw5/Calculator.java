@@ -4,7 +4,7 @@ import jdk.dynalink.Operation;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
+import java.util.Optional;
 import java.util.function.BinaryOperator;
 
 public class Calculator {
@@ -30,10 +30,8 @@ public class Calculator {
         return operatorMap;
     }
 
-    public static double calculate(double x, char operator, double y) {
+    public double calculate(double x, char operator, double y) throws NullPointerException {
         BinaryOperator<Double> op = operations().get(operator);
         return op.apply(x, y);
     }
-
-
 }

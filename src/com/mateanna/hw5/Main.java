@@ -1,9 +1,14 @@
 package com.mateanna.hw5;
 
-import static com.mateanna.hw5.Calculator.calculate;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println(calculate(2, '+', 5));
+
+        Calculator calculator = new Calculator();
+        try{
+            System.out.println(calculator.calculate(2,'ö',7));
+        }
+        catch (NullPointerException e){
+            System.out.println("Illegal Argument");
+        }
     }
 }
